@@ -1,79 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page Title -->
     <title>Contact Us</title>
 
-    <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <nav class="navbar">
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
 
-    <div class="logo">
-        <img src="assets/logo.png" alt="Logo">
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo" />
         <span>APEX TECH</span>
-    </div>
+      </div>
 
-    <ul class="nav-links">
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact</a></li>
-    </ul>
+      </ul>
+    </nav>
+    <!-- Navbar End -->
 
-</nav>
+    <!-- Contact Banner Section Start -->
+    <section class="page-banner">
+      <h1>Contact Us</h1>
 
-   <!-- Contact Banner -->
+      <p>Let's Build Something Amazing Together</p>
+    </section>
+    <!-- Contact Banner Section End -->
 
-<section class="page-banner">
-
-    <h1>Contact Us</h1>
-
-    <p>Let's Build Something Amazing Together</p>
-
-</section>
-
-<!-- Contact Section -->
-
-<section class="contact-section">
-
-    <div class="contact-form">
-
+    <!-- Contact Section Start -->
+    <section class="contact-section">
+      <!-- Contact Form Start -->
+      <div class="contact-form">
         <h2>Send Us a Message</h2>
 
         <form>
+          <input type="text" placeholder="Enter Your Name" required />
 
-            <input type="text"
-            placeholder="Enter Your Name"
-            required>
+          <input type="email" placeholder="Enter Your Email" required />
 
-            <input type="email"
-            placeholder="Enter Your Email"
-            required>
+          <input type="tel" placeholder="Enter Your Phone Number" required />
 
-            <input type="tel"
-            placeholder="Enter Your Phone Number"
-            required>
-
-            <textarea
+          <textarea
             placeholder="Write Your Message"
             rows="5"
-            required></textarea>
+            required
+          ></textarea>
 
-            <button type="submit"
-            class="hero-btn">
-            Send Message
-            </button>
-
+          <button type="submit" class="hero-btn">Send Message</button>
         </form>
+      </div>
+      <!-- Contact Form End -->
 
-    </div>
-
-    <div class="contact-info">
-
+      <!-- Contact Information Start -->
+      <div class="contact-info">
         <h2>Contact Information</h2>
 
         <p>📍 Rajkot, Gujarat, India</p>
@@ -81,45 +76,52 @@
         <p>📧 info@apextech.com</p>
 
         <p>📞 +91 9876543210</p>
+      </div>
+      <!-- Contact Information End -->
+    </section>
+    <!-- Contact Section End -->
 
-    </div>
+    <!-- Google Map Section Start -->
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps?q=Rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+      >
+      </iframe>
+    </section>
+    <!-- Google Map Section End -->
 
-</section>
-
-<!-- Google Map -->
-
-<section class="map-section">
-
-<iframe
-src="https://www.google.com/maps?q=Rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed"
-allowfullscreen=""
-loading="lazy">
-</iframe>
-
-</section>
-
+    <!-- Footer Start -->
     <footer class="footer">
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <p>Home</p>
-            <p>About</p>
-            <p>Services</p>
-            <p>Contact</p>
-        </div>
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
 
-        <div class="footer-section">
-            <h3>Contact Info</h3>
-            <p><i class="fa-solid fa-envelope"></i> info@apextech.com</p>
-            <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
-        </div>
+        <p>Home</p>
+        <p>About</p>
+        <p>Services</p>
+        <p>Contact</p>
+      </div>
 
-        <div class="footer-section">
-            <h3>Social Media</h3>
-            <p>Instagram</p>
-            <p>Facebook</p>
-            <p>LinkedIn</p>
-        </div>
+      <!-- Contact Information -->
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+
+        <p><i class="fa-solid fa-envelope"></i> info@apextech.com</p>
+
+        <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-section">
+        <h3>Social Media</h3>
+
+        <p><i class="fa-brands fa-instagram"></i> Instagram</p>
+        <p><i class="fa-brands fa-facebook"></i> Facebook</p>
+        <p><i class="fa-brands fa-linkedin"></i> LinkedIn</p>
+      </div>
     </footer>
-
-</body>
+    <!-- Footer End -->
+  </body>
 </html>
