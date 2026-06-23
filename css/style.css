@@ -477,3 +477,24 @@ p {
     margin-top: 15px;
   }
 }
+
+/* Validation Messages */
+
+.error {
+  color: red;
+  font-size: 14px;
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.input-error {
+  border: 2px solid red !important;
+}
+
+.success {
+  color: green;
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: 600;
+}

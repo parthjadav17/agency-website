@@ -53,20 +53,41 @@
       <div class="contact-form">
         <h2>Send Us a Message</h2>
 
-        <form>
-          <input type="text" placeholder="Enter Your Name" required />
+        <form id="contactForm" novalidate>
+          <input type="text" id="name" placeholder="Enter Your Name" required />
 
-          <input type="email" placeholder="Enter Your Email" required />
+          <small class="error" id="nameError"></small>
 
-          <input type="tel" placeholder="Enter Your Phone Number" required />
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Your Email"
+            required
+          />
+
+          <small class="error" id="emailError"></small>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter Your Phone Number"
+            required
+          />
+
+          <small class="error" id="phoneError"></small>
 
           <textarea
+            id="message"
             placeholder="Write Your Message"
             rows="5"
             required
           ></textarea>
 
+          <small class="error" id="messageError"></small>
+
           <button type="submit" class="hero-btn">Send Message</button>
+
+          <p id="successMessage"></p>
         </form>
       </div>
       <!-- Contact Form End -->

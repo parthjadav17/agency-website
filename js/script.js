@@ -1,20 +1,129 @@
-// Select Elements
+// Contact Form Validation
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+const form = document.querySelector("#contactForm");
 
-// Toggle Menu
+if(form){
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
+    const nameInput = document.querySelector("#name");
+    const emailInput = document.querySelector("#email");
+    const phoneInput = document.querySelector("#phone");
+    const messageInput = document.querySelector("#message");
 
-// Close Menu After Link Click
+    const nameError = document.querySelector("#nameError");
+    const emailError = document.querySelector("#emailError");
+    const phoneError = document.querySelector("#phoneError");
+    const messageError = document.querySelector("#messageError");
 
-const links = document.querySelectorAll(".nav-links a");
+    const successMessage = document.querySelector("#successMessage");
 
-links.forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+    function validateName(){
+
+        if(nameInput.value.trim().length < 3){
+
+            nameError.textContent =
+            "Name must contain at least 3 characters";
+
+            nameInput.classList.add("input-error");
+
+            return false;
+        }
+
+        nameError.textContent = "";
+        nameInput.classList.remove("input-error");
+
+        return true;
+    }
+
+    function validateEmail(){
+
+        const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if(!emailPattern.test(emailInput.value.trim())){
+
+            emailError.textContent =
+            "Please enter a valid email address";
+
+            emailInput.classList.add("input-error");
+
+            return false;
+        }
+
+        emailError.textContent = "";
+        emailInput.classList.remove("input-error");
+
+        return true;
+    }
+
+    function validatePhone(){
+
+        const phonePattern =
+        /^[0-9]{10}$/;
+
+        if(!phonePattern.test(phoneInput.value.trim())){
+
+            phoneError.textContent =
+            "Please enter a valid 10-digit number";
+
+            phoneInput.classList.add("input-error");
+
+            return false;
+        }
+
+        phoneError.textContent = "";
+        phoneInput.classList.remove("input-error");
+
+        return true;
+    }
+
+    function validateMessage(){
+
+        const words =
+        messageInput.value.trim().split(/\s+/);
+
+        if(words.length < 10){
+
+            messageError.textContent =
+            "Message must contain at least 10 words";
+
+            messageInput.classList.add("input-error");
+
+            return false;
+        }
+
+        messageError.textContent = "";
+        messageInput.classList.remove("input-error");
+
+        return true;
+    }
+
+    form.addEventListener("submit", function(event){
+
+        event.preventDefault();
+
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isPhoneValid = validatePhone();
+        const isMessageValid = validateMessage();
+
+        if(
+            isNameValid &&
+            isEmailValid &&
+            isPhoneValid &&
+            isMessageValid
+        ){
+
+            successMessage.textContent =
+            "Message sent successfully!";
+
+            successMessage.classList.add("success");
+
+            form.reset();
+        }
+        else{
+
+            successMessage.textContent = "";
+        }
     });
-});
+
+}
