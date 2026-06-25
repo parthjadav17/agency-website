@@ -182,3 +182,73 @@ if(slides.length > 0){
     prevBtn.addEventListener("mouseenter", stopAutoPlay);
 
 }
+// Scroll To Top
+
+const topBtn = document.querySelector("#topBtn");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>300){
+
+        topBtn.style.display="block";
+
+    }
+
+    else{
+
+        topBtn.style.display="none";
+
+    }
+
+});
+
+topBtn.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+// Sticky Navbar
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 100){
+        navbar.classList.add("sticky");
+    }
+    else{
+        navbar.classList.remove("sticky");
+    }
+
+});
+// FAQ Accordion
+
+const questions = document.querySelectorAll(".question");
+
+questions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const currentAnswer = question.nextElementSibling;
+
+        document.querySelectorAll(".answer").forEach(answer => {
+
+            if(answer !== currentAnswer){
+
+                answer.classList.remove("active");
+
+            }
+
+        });
+
+        currentAnswer.classList.toggle("active");
+
+    });
+
+});
