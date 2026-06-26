@@ -1,7 +1,4 @@
-import {
-    collection,
-    addDoc
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";// Mobile Menu Toggle
+// Mobile Menu Toggle
 
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
@@ -131,52 +128,42 @@ if(form){
         const isPhoneValid = validatePhone();
         const isMessageValid = validateMessage();
 
-      if(
-    isNameValid &&
-    isEmailValid &&
-    isPhoneValid &&
-    isMessageValid
-){
+        if(!isNameValid || !isEmailValid || !isPhoneValid || !isMessageValid){
+            return;
+        }
 
-    const submitBtn = form.querySelector("button");
+        const submitBtn = form.querySelector("button");
 
-    submitBtn.disabled = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
 
-    submitBtn.textContent = "Sending...";
+        try{
+            await window.firebaseAddDoc(
+                window.firebaseCollection(
+                    window.firebaseDB,
+                    "ContactMessages"
+                ),
+                {
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    phone: phoneInput.value,
+                    message: messageInput.value,
+                    createdAt: new Date()
+                }
+            );
 
-    try {
+            successMessage.textContent = "Message sent successfully!";
+            successMessage.classList.add("success");
 
-    await addDoc(collection(window.db, "ContactMessages"), {
+            form.reset();
+        }
+        catch(error){
+            successMessage.textContent = "Unable to send message.";
+        }
 
-        name: nameInput.value,
-        email: emailInput.value,
-        phone: phoneInput.value,
-        message: messageInput.value,
-        date: new Date()
-
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
     });
-
-    successMessage.textContent =
-    "Message sent successfully!";
-
-    successMessage.classList.add("success");
-
-    form.reset();
-
-}
-catch(error){
-
-    successMessage.textContent =
-    "Something went wrong.";
-
-}
-
-submitBtn.disabled = false;
-
-submitBtn.textContent = "Send Message";
-
-}
-});
 }
 // Testimonials Slider
 
