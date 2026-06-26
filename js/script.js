@@ -106,26 +106,36 @@ if(form){
         const isPhoneValid = validatePhone();
         const isMessageValid = validateMessage();
 
-        if(
-            isNameValid &&
-            isEmailValid &&
-            isPhoneValid &&
-            isMessageValid
-        ){
+      if(
+    isNameValid &&
+    isEmailValid &&
+    isPhoneValid &&
+    isMessageValid
+){
 
-            successMessage.textContent =
-            "Message sent successfully!";
+    const submitBtn = form.querySelector("button");
 
-            successMessage.classList.add("success");
+    submitBtn.disabled = true;
 
-            form.reset();
-        }
-        else{
+    submitBtn.textContent = "Sending...";
 
-            successMessage.textContent = "";
-        }
-    });
+    setTimeout(() => {
 
+        successMessage.textContent =
+        "Message sent successfully!";
+
+        successMessage.classList.add("success");
+
+        form.reset();
+
+        submitBtn.disabled = false;
+
+        submitBtn.textContent = "Send Message";
+
+    },1000);
+
+}
+});
 }
 // Testimonials Slider
 
