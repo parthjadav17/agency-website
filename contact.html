@@ -154,6 +154,25 @@
       <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <script src="js/script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyADNYnufn810y2e5QmoMoEWt69hY2oYefk",
+        authDomain: "apex-tech-63c7d.firebaseapp.com",
+        projectId: "apex-tech-63c7d",
+        storageBucket: "apex-tech-63c7d.firebasestorage.app",
+        messagingSenderId: "859811494302",
+        appId: "1:859811494302:web:4f22f8b6be5dab0bfd7e8f",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      window.db = db;
+    </script>
+
+    <script type="module" src="js/script.js"></script>
   </body>
 </html>

@@ -1,4 +1,7 @@
-// Mobile Menu Toggle
+import {
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";// Mobile Menu Toggle
 
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
@@ -119,7 +122,7 @@ if(form){
         return true;
     }
 
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit", async function(event){
 
         event.preventDefault();
 
@@ -141,20 +144,36 @@ if(form){
 
     submitBtn.textContent = "Sending...";
 
-    setTimeout(() => {
+    try {
 
-        successMessage.textContent =
-        "Message sent successfully!";
+    await addDoc(collection(window.db, "ContactMessages"), {
 
-        successMessage.classList.add("success");
+        name: nameInput.value,
+        email: emailInput.value,
+        phone: phoneInput.value,
+        message: messageInput.value,
+        date: new Date()
 
-        form.reset();
+    });
 
-        submitBtn.disabled = false;
+    successMessage.textContent =
+    "Message sent successfully!";
 
-        submitBtn.textContent = "Send Message";
+    successMessage.classList.add("success");
 
-    },1000);
+    form.reset();
+
+}
+catch(error){
+
+    successMessage.textContent =
+    "Something went wrong.";
+
+}
+
+submitBtn.disabled = false;
+
+submitBtn.textContent = "Send Message";
 
 }
 });
