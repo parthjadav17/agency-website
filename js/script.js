@@ -290,3 +290,55 @@ questions.forEach(question => {
     });
 
 });
+// Animated Counter
+
+const counters = document.querySelectorAll(".counter");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            const counter = entry.target;
+
+            const target = Number(counter.dataset.target);
+
+            let count = 0;
+
+            const speed = target / 80;
+
+            const updateCounter = () => {
+
+                count += speed;
+
+                if(count < target){
+
+                    counter.textContent = Math.ceil(count);
+
+                    requestAnimationFrame(updateCounter);
+
+                }else{
+
+                    counter.textContent = target + "+";
+
+                }
+
+            };
+
+            updateCounter();
+
+            observer.unobserve(counter);
+
+        }
+
+    });
+
+});
+
+counters.forEach(counter => {
+
+    observer.observe(counter);
+
+});
+

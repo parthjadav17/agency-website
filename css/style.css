@@ -92,7 +92,15 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+.footer-section a {
+  text-decoration: none;
+  color: #d1d5db;
+  transition: 0.3s ease;
+}
 
+.footer-section a:hover {
+  color: white;
+}
 .footer-section p:hover {
   color: white;
 }
@@ -804,4 +812,48 @@ p {
   .footer-section {
     width: 100%;
   }
+}
+/* Mouse Spotlight */
+
+.spotlight {
+  position: fixed;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.28) 0%,
+    rgba(37, 99, 235, 0.1) 40%,
+    rgba(37, 99, 235, 0) 75%
+  );
+
+  transform: translate(-50%, -50%);
+
+  z-index: 1;
+
+  transition: transform 0.05s linear;
+
+  filter: blur(20px);
+}
+
+body {
+  position: relative;
+}
+
+.navbar,
+.hero,
+.about,
+.services,
+.team,
+.process,
+.contact-section,
+.footer {
+  position: relative;
+
+  z-index: 2;
 }
